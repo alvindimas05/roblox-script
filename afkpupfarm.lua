@@ -10,6 +10,7 @@ while true do
     if Blackout.Value == true or Power.Value == true then
         print("Blackout or Power Outage is ON!")
         break
+    end
     Player.Character.HumanoidRootPart.CFrame = CFrame.new(37, 1, -310)
     wait(1)
     for i = 1, 6 do
