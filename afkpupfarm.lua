@@ -7,6 +7,9 @@ local Power = game.Workspace.Events:FindFirstChild("PowerOutage")
 local Player = Players.LocalPlayer
 local Touch = Workspace.Scripted.TransformBrick.SlimePup:FindFirstChild("TouchInterest", true).Parent
 while true do
+    if Blackout.Value == true or Power.Value == true then
+        print("Blackout or Power Outage is ON!")
+        break
     Player.Character.HumanoidRootPart.CFrame = CFrame.new(37, 1, -310)
     wait(1)
     for i = 1, 6 do
@@ -18,9 +21,6 @@ while true do
     local Leg = Player.Character:FindFirstChild("Left Leg")
     if Leg.BrickColor == BrickColor.new("Bright yellow") or Leg:FindFirstChild("ShinyParticle") then
         print("Congrats!")
-        break
-    elseif Blackout.Value == true or Power.Value == true then
-        print("Blackout or Power Outage is ON!")
         break
     else
         Player.Character.Humanoid.Health = 0
