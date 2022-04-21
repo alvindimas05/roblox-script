@@ -1,6 +1,6 @@
 local KaijuParadiseGUI = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
-local TextLabel = Instance.new("TextLabel")
+local Credit = Instance.new("TextLabel")
 local PupFarm = Instance.new("TextButton")
 local TPToGoggles = Instance.new("TextButton")
 local StandingPup = Instance.new("TextButton")
@@ -12,30 +12,32 @@ KaijuParadiseGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Frame.Parent = KaijuParadiseGUI
 Frame.Active = true
 Frame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-Frame.Position = UDim2.new(0.61077106, 0, 0.630218685, 0)
-Frame.Size = UDim2.new(0, 318, 0, 186)
+Frame.Position = UDim2.new(0.242349997, 0, 0.258573562, 0)
+Frame.Size = UDim2.new(0, 499, 0, 288)
+Frame.Draggable = true
 
-TextLabel.Parent = Frame
-TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.BackgroundTransparency = 100.000
-TextLabel.Position = UDim2.new(0.157232702, 0, 0, 0)
-TextLabel.Size = UDim2.new(0, 217, 0, 23)
-TextLabel.Font = Enum.Font.PatrickHand
-TextLabel.Text = "Kaiju Paradise GUI by alvindimas05"
-TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.TextSize = 17.000
+Credit.Name = "Credit"
+Credit.Parent = Frame
+Credit.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Credit.BackgroundTransparency = 100.000
+Credit.Position = UDim2.new(0.157879442, 0, -0.00718651759, 0)
+Credit.Size = UDim2.new(0, 339, 0, 35)
+Credit.Font = Enum.Font.PatrickHand
+Credit.Text = "Kaiju Paradise GUI by alvindimas05"
+Credit.TextColor3 = Color3.fromRGB(255, 255, 255)
+Credit.TextSize = 24.000
 
 PupFarm.Name = "Pup Farm"
 PupFarm.Parent = Frame
 PupFarm.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 PupFarm.BackgroundTransparency = 0.900
 PupFarm.BorderSizePixel = 6
-PupFarm.Position = UDim2.new(0.0220125802, 0, 0.161290318, 0)
-PupFarm.Size = UDim2.new(0, 66, 0, 17)
+PupFarm.Position = UDim2.new(0.0221031215, 0, 0.155791923, 0)
+PupFarm.Size = UDim2.new(0, 103, 0, 25)
 PupFarm.Font = Enum.Font.PatrickHand
 PupFarm.Text = "AFK Pup Farm"
 PupFarm.TextColor3 = Color3.fromRGB(255, 255, 255)
-PupFarm.TextSize = 14.000
+PupFarm.TextSize = 20.000
 PupFarm.MouseButton1Click:connect(function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/alvindimas05/roblox/main/afkpupfarm.lua", true))()
 end)
@@ -45,12 +47,12 @@ TPToGoggles.Parent = Frame
 TPToGoggles.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TPToGoggles.BackgroundTransparency = 0.900
 TPToGoggles.BorderSizePixel = 6
-TPToGoggles.Position = UDim2.new(0.273584932, 0, 0.161290318, 0)
-TPToGoggles.Size = UDim2.new(0, 66, 0, 17)
+TPToGoggles.Position = UDim2.new(0.274710238, 0, 0.155791923, 0)
+TPToGoggles.Size = UDim2.new(0, 103, 0, 25)
 TPToGoggles.Font = Enum.Font.PatrickHand
 TPToGoggles.Text = "TP To Goggles"
 TPToGoggles.TextColor3 = Color3.fromRGB(255, 255, 255)
-TPToGoggles.TextSize = 14.000
+TPToGoggles.TextSize = 20.000
 TPToGoggles.MouseButton1Click:connect(function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/alvindimas05/roblox/main/nightcrawlgoggles.lua", true))()
 end)
@@ -60,12 +62,12 @@ StandingPup.Parent = Frame
 StandingPup.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 StandingPup.BackgroundTransparency = 0.900
 StandingPup.BorderSizePixel = 6
-StandingPup.Position = UDim2.new(0.51886797, 0, 0.161290318, 0)
-StandingPup.Size = UDim2.new(0, 66, 0, 17)
+StandingPup.Position = UDim2.new(0.521002054, 0, 0.155791923, 0)
+StandingPup.Size = UDim2.new(0, 103, 0, 25)
 StandingPup.Font = Enum.Font.PatrickHand
 StandingPup.Text = "Standing Pup"
 StandingPup.TextColor3 = Color3.fromRGB(255, 255, 255)
-StandingPup.TextSize = 14.000
+StandingPup.TextSize = 20.000
 StandingPup.MouseButton1Click:connect(function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/alvindimas05/roblox/main/standingpup.lua", true))()
 end)
