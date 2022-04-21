@@ -1,4 +1,4 @@
-local KaijuParadiseGUI = Instance.new("ScreenGui")
+local KaijuParadiseGUI = Instance.new("CoreGui")
 local Frame = Instance.new("Frame")
 local Credit = Instance.new("TextLabel")
 local PupFarm = Instance.new("TextButton")
