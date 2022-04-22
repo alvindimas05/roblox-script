@@ -1,4 +1,4 @@
-local KaijuParadiseGUI = Instance.new("StarterGui")
+local KaijuParadiseGUI = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local Credit = Instance.new("TextLabel")
 local PupFarm = Instance.new("TextButton")
@@ -6,7 +6,7 @@ local TPToGoggles = Instance.new("TextButton")
 local StandingPup = Instance.new("TextButton")
 
 KaijuParadiseGUI.Name = "KaijuParadiseGUI"
-KaijuParadiseGUI.Parent = game.Players.LocalPlayer:WaitForChild("CoreGui")
+KaijuParadiseGUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 KaijuParadiseGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Frame.Parent = KaijuParadiseGUI
