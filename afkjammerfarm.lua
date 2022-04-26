@@ -32,7 +32,7 @@ while true do
 		wait(1)
 	until Player.Character:FindFirstChild("Transformed")
 	wait(9)
-    Backpack = Player.Backpack:FindFirstChild("Boombox")
+    Backpack = Player.Backpack.Diversion:FindFirstChild("Mic")
     if Backpack then
         game.StarterGui:SetCore("SendNotification", {
         Title = "Kaiju Paradise GUI";
