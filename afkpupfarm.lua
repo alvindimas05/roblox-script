@@ -8,7 +8,11 @@ local Player = Players.LocalPlayer
 local Touch = Workspace.Scripted.TransformBrick.SlimePup:FindFirstChild("TouchInterest", true).Parent
 while true do
     if Blackout.Value == true or Power.Value == true then
-        print("Blackout or Power Outage is ON!")
+        game.StarterGui:SetCore("SendNotification", {
+        Title = "Kaiju Paradise GUI";
+        Text = "Blackout or Power Outage is ON!";
+        Duration = 5;
+        })
         break
     end
     Player.Character.HumanoidRootPart.CFrame = CFrame.new(37, 1, -310)
