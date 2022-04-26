@@ -1,0 +1,1 @@
+game.Workspace.Events.BarrierEnabled.Value = false
