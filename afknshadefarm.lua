@@ -15,12 +15,10 @@ while true do
         })
         break
     end
-    Touch = Workspace.Shade:FindFirstChild("TouchInterest", true).Parent
-    if not Touch then
-	Touch = Workspace.Scripted.TransformBrick.Shade:FindFirstChild("TouchInterest", true).Parent
-    end
+    Shade = Workspace:FindFirstChild("Shade") or Workspace.Scripted.TransformBrick:FindFirstChild("Shade")
     Player.Character.HumanoidRootPart.CFrame = CFrame.new(37, 1, -310)
-    if Touch then
+    if Shade then
+		Touch = Shade:FindFirstChild("TouchInterest", true).Parent
         firetouchinterest(Player.Character.HumanoidRootPart, Touch, 0)
         firetouchinterest(Player.Character.HumanoidRootPart, Touch, 1)
     else
