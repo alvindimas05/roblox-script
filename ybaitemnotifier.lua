@@ -4,6 +4,12 @@ local new = 0
 local mesh = 0
 local lucky = false
 
+game.StarterGui:SetCore("SendNotification", {
+        Title = "YBA Item Notifier";
+        Text = "Script Loaded!";
+        Duration = 5;
+        })
+
 function creategui()
     for __,v in pairs(game.Workspace.Item_Spawns.Items:GetChildren()) do
         for __,o in pairs(v:GetChildren()) do
