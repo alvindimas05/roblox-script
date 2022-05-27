@@ -4,6 +4,12 @@ local Title = Instance.new("TextLabel")
 local Kill = Instance.new("TextButton")
 local Name = Instance.new("TextBox")
 
+game.StarterGui:SetCore("SendNotification", {
+    Title = "CHAOS Kill Player";
+    Text = "DONT FORGET TO USE AND EQUIP PENCIL";
+    Duration = 5;
+})  
+
 Gui.Name = "ChaosPlayerKillGUI"
 Gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 Gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
