@@ -73,7 +73,7 @@ Kill.MouseButton1Click:Connect(function()
 		})
 	end
 	if Players:FindFirstChild(pname) then
-		target = Player[pname].Character.Humanoid
+		target = Players[pname].Character.Humanoid
 		for i = 0, 3 do
 			Players.LocalPlayer.Character.Pencil.DamageRemote:FireServer(target)
 			wait(0.5)
