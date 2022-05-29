@@ -2,13 +2,7 @@ local Gui = Instance.new("ScreenGui")
 local Background = Instance.new("Frame")
 local Title = Instance.new("TextLabel")
 local Kill = Instance.new("TextButton")
-local Name = Instance.new("TextBox")
-
-game.StarterGui:SetCore("SendNotification", {
-    Title = "CHAOS Kill Player";
-    Text = "DONT FORGET TO USE AND EQUIP PENCIL";
-    Duration = 5;
-})  
+local Name = Instance.new("TextBox") 
 
 Gui.Name = "ChaosPlayerKillGUI"
 Gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -56,16 +50,44 @@ Name.Text = "Player Name"
 Name.TextColor3 = Color3.fromRGB(255, 255, 255)
 Name.TextSize = 30.000
 
+local Players = game:GetService("Players")
 local pname
 local target
+
+game.StarterGui:SetCore("SendNotification", {
+    Title = "CHAOS Kill Player";
+    Text = "DONT FORGET TO USE AND EQUIP PENCIL";
+    Duration = 5;
+}) 
+
 Name:GetPropertyChangedSignal("Text"):Connect(function()
     pname = Name.Text
 end)
 
 Kill.MouseButton1Click:Connect(function()
-	target = game:GetService("Players")[pname].Character.Humanoid
-	for i = 0, 3 do
-		game:GetService("Players").LocalPlayer.Character.Pencil.DamageRemote:FireServer(target)
-		wait(1)
+	if Players.LocalPlayer.Character:FindFirstChild("Pencil") == nil then
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "CHAOS Kill Player";
+			Text = "Equip The Pencil First!";
+			Duration = 5;
+		})
+	end
+	if Players:FindFirstChild(pname) then
+		target = Player[pname].Character.Humanoid
+		for i = 0, 3 do
+			Players.LocalPlayer.Character.Pencil.DamageRemote:FireServer(target)
+			wait(0.5)
+		end
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "CHAOS Kill Player";
+			Text = "Player Killed!";
+			Duration = 5;
+		}) 
+	else
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "CHAOS Kill Player";
+			Text = "Player Not Found!";
+			Duration = 5;
+		}) 
 	end
 end)
