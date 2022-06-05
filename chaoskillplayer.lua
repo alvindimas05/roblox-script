@@ -56,7 +56,7 @@ local target
 
 game.StarterGui:SetCore("SendNotification", {
     Title = "CHAOS Kill Player";
-    Text = "DONT FORGET TO USE AND EQUIP PENCIL";
+    Text = "DONT FORGET TO USE AND EQUIP Pencil";
     Duration = 5;
 }) 
 
@@ -71,23 +71,34 @@ Kill.MouseButton1Click:Connect(function()
 			Text = "Equip The Pencil First!";
 			Duration = 5;
 		})
-	end
-	if Players:FindFirstChild(pname) then
-		target = Players[pname].Character.Humanoid
-		for i = 0, 3 do
-			Players.LocalPlayer.Character.Pencil.DamageRemote:FireServer(target)
-			wait(0.5)
-		end
-		game.StarterGui:SetCore("SendNotification", {
-			Title = "CHAOS Kill Player";
-			Text = "Player Killed!";
-			Duration = 5;
-		}) 
 	else
-		game.StarterGui:SetCore("SendNotification", {
-			Title = "CHAOS Kill Player";
-			Text = "Player Not Found!";
-			Duration = 5;
-		}) 
+		if Players:FindFirstChild(pname) then
+			target = Players:FindFirstChild(pname).Character
+			if target:FindFirstChild("ForceField") then
+				game.StarterGui:SetCore("SendNotification", {
+					Title = "CHAOS Kill Player";
+					Text = "Waiting until target force field gone";
+					Duration = 5;
+				}) 
+				repeat 
+					wait()
+				until target:FindFirstChild("ForceField") == nil
+			end
+			repeat 
+				Players.LocalPlayer.Character.Pencil.DamageRemote:FireServer(target.Humanoid)
+				wait()
+			until target.Humanoid.Health == 0 
+			game.StarterGui:SetCore("SendNotification", {
+					Title = "CHAOS Kill Player";
+					Text = "Target Killed!";
+					Duration = 5;
+				})
+		else
+			game.StarterGui:SetCore("SendNotification", {
+				Title = "CHAOS Kill Player";
+				Text = "Target Not Found!";
+				Duration = 5;
+			}) 
+		end
 	end
 end)
