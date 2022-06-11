@@ -56,7 +56,7 @@ local target
 
 game.StarterGui:SetCore("SendNotification", {
     Title = "CHAOS Kill Player";
-    Text = "DONT FORGET TO USE AND EQUIP Pencil";
+    Text = "DONT FORGET TO USE AND EQUIP WEAPON";
     Duration = 5;
 }) 
 
@@ -65,10 +65,10 @@ Name:GetPropertyChangedSignal("Text"):Connect(function()
 end)
 
 Kill.MouseButton1Click:Connect(function()
-	if Players.LocalPlayer.Character:FindFirstChild("Pencil") == nil then
+	if Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") == nil then
 		game.StarterGui:SetCore("SendNotification", {
 			Title = "CHAOS Kill Player";
-			Text = "Equip The Pencil First!";
+			Text = "Equip The Weapon First!";
 			Duration = 5;
 		})
 	else
@@ -85,7 +85,7 @@ Kill.MouseButton1Click:Connect(function()
 				until target:FindFirstChild("ForceField") == nil
 			end
 			repeat 
-				Players.LocalPlayer.Character.Pencil.DamageRemote:FireServer(target.Humanoid)
+				Players.LocalPlayer.Character:FindFirstChildOfClass("Tool").DamageRemote:FireServer(target.Humanoid)
 				wait()
 			until target.Humanoid.Health == 0 
 			game.StarterGui:SetCore("SendNotification", {
