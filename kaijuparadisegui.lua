@@ -74,7 +74,7 @@ TPToGoggles.BorderSizePixel = 6
 TPToGoggles.Position = UDim2.new(0.356532365, 0, 0.380268395, 0)
 TPToGoggles.Size = UDim2.new(0, 103, 0, 25)
 TPToGoggles.Font = Enum.Font.PatrickHand
-TPToGoggles.Text = "TP To Goggles"
+TPToGoggles.Text = "TP To Goggle"
 TPToGoggles.TextColor3 = Color3.fromRGB(255, 255, 255)
 TPToGoggles.TextSize = 20.000
 
@@ -178,12 +178,24 @@ local Players = game:GetService("Players")
 local Player = game:GetService("Players").LocalPlayer
 local Workspace = game:GetService("Workspace")
 
+local FCrame = CFrame.new(37, 1, -310)
+
 function notify(text)
 	game.StarterGui:SetCore("SendNotification", {
 		Title = "Kaiju Paradise GUI";
 		Text = text;
     })
 end
+
+local minim = false
+Minimize.MouseButton1Click:Connect(function()
+	minim = not minim
+	if minim == true then
+		ButtonFrame.Visible = false
+	else
+		ButtonFrame.Visible = true
+	end
+end)
 
 Exit.MouseButton1Click:Connect(function()
 	KaijuParadiseGUI:Destroy()
@@ -192,13 +204,29 @@ end)
 TPToGoggles.MouseButton1Click:Connect(function()
 	local Nightvision = Workspace.Terrain:FindFirstChild("Nightvision")
 	local Blackout = Workspace.Events.Blackout
+	local Found = false
 
-	if Nightvision then
-		Player.Character.HumanoidRootPart.CFrame = Nightvision.Hitbox.CFrame
-	elseif Blackout.Value == false then
+	if Blackout.Value == false then
 		notify("No Blackout!")
 	else
-		notify("Not Found!")
+		notify("Checking if someone found it...")
+		for _, v in pairs(Players:GetChildren()) do
+			if v.Character:FindFirstChild("Nightcrawler_Goggle") then
+				notify(v.Name.." found the goggle!")
+				Found = true
+				break
+			end
+		end
+		if Found == false then
+			notify("Teleport Event Started!")
+			notify("You're gonna get teleported if Goggle spawned")
+			repeat wait() until Nightvision or Blackout.Value == false
+			if Blackout.Value == false then
+				notify("No Goggle...")
+			else
+				Player.Character.HumanoidRootPart.CFrame = Nightvision.Hitbox.CFrame
+			end
+		end
 	end
 end)
 
@@ -221,7 +249,7 @@ HoundFarm.MouseButton1Click:Connect(function()
 			notify("Blackout or Power Outage is ON!")
 			break
 		end
-		Player.Character.HumanoidRootPart.CFrame = CFrame.new(37, 1, -310)
+		Player.Character.HumanoidRootPart.CFrame = FCrame
 		wait(1)
 		for i = 1, 6 do
 			firetouchinterest(Player.Character.HumanoidRootPart, Touch, 0)
@@ -248,7 +276,7 @@ PupFarm.MouseButton1Click:Connect(function()
 			notify("Blackout or Power Outage is ON!")
 			break
 		end
-		Player.Character.HumanoidRootPart.CFrame = CFrame.new(37, 1, -310)
+		Player.Character.HumanoidRootPart.CFrame = FCrame
 		wait(1)
 		for i = 1, 6 do
 			firetouchinterest(Player.Character.HumanoidRootPart, Touch, 0)
@@ -275,7 +303,7 @@ DragonFarm.MouseButton1Click:Connect(function()
 			notify("Blackout or Power Outage is ON!")
 			break
 		end
-		Player.Character.HumanoidRootPart.CFrame = CFrame.new(37, 1, -310)
+		Player.Character.HumanoidRootPart.CFrame = FCrame
 		firetouchinterest(Player.Character.HumanoidRootPart, Touch, 0)
 		firetouchinterest(Player.Character.HumanoidRootPart, Touch, 1)
 		wait(8)
@@ -300,7 +328,7 @@ VIPJammerFarm.MouseButton1Click:Connect(function()
 			break
 		end
 		Shade = Workspace:FindFirstChild("Fed") or Workspace.Scripted.TransformBrick:FindFirstChild("Fed")
-		Player.Character.HumanoidRootPart.CFrame = CFrame.new(37, 1, -310)
+		Player.Character.HumanoidRootPart.CFrame = FCrame
 		if Shade then
 			Touch = Shade:FindFirstChild("TouchInterest", true).Parent
 			firetouchinterest(Player.Character.HumanoidRootPart, Touch, 0)
@@ -334,7 +362,7 @@ VIPShadeFarm.MouseButton1Click:Connect(function()
 			break
 		end
 		Shade = Workspace:FindFirstChild("Shade") or Workspace.Scripted.TransformBrick:FindFirstChild("Shade")
-		Player.Character.HumanoidRootPart.CFrame = CFrame.new(37, 1, -310)
+		Player.Character.HumanoidRootPart.CFrame = FCrame
 		if Shade then
 			Touch = Shade:FindFirstChild("TouchInterest", true).Parent
 			firetouchinterest(Player.Character.HumanoidRootPart, Touch, 0)
@@ -368,7 +396,7 @@ VIPNShadeFarm.MouseButton1Click:Connect(function()
 			break
 		end
 		Shade = Workspace:FindFirstChild("Shade") or Workspace.Scripted.TransformBrick:FindFirstChild("Shade")
-		Player.Character.HumanoidRootPart.CFrame = CFrame.new(37, 1, -310)
+		Player.Character.HumanoidRootPart.CFrame = FCrame
 		if Shade then
 			Touch = Shade:FindFirstChild("TouchInterest", true).Parent
 			firetouchinterest(Player.Character.HumanoidRootPart, Touch, 0)
