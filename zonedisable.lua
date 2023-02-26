@@ -1,0 +1,1 @@
+game.Players.LocalPlayer.PlayerScripts.LocalScript.Zone.Disabled = true
